@@ -25,6 +25,7 @@ body {
 .content-box {
     background-color: #eee;
     color: #111;
+    -webkit-text-fill-color: #111;
     height: 250px;
     overflow:hidden;
 }
