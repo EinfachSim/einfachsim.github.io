@@ -1,2 +1,0 @@
-# einfachsim.github.io
-test
