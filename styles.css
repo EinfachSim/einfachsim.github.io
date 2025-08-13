@@ -26,7 +26,7 @@ body {
     background-color: #eee;
     color: #111;
     -webkit-text-fill-color: #111;
-    height: auto;
+    height: 300px;
     overflow:hidden;
 }
 .content-box p {
