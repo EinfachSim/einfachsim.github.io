@@ -26,7 +26,7 @@ body {
     background-color: #eee;
     color: #111;
     -webkit-text-fill-color: #111;
-    height: 250px;
+    height: auto;
     overflow:hidden;
 }
 .content-box p {
@@ -60,4 +60,39 @@ a {
     margin-right: 10px;
     color: #eee;
     -webkit-text-fill-color: #eee;
+}
+.long-content-box {
+    width: auto;
+    display: inline-block;
+    padding: 0px 40px 30px;
+    background-color: #eee;
+    color: #111;
+    background-color: #eee;
+    -webkit-text-fill-color: #111;
+    height: auto;
+    overflow:hidden;
+}
+.masonry-box {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    float: left;
+    padding: 0px 40px 30px 0px;
+}
+.masonry {
+    column-count: 4; /* Number of columns */
+    column-gap: 0.5rem;
+}
+
+.long-content-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@media (max-width: 100%) {
+    .masonry { column-count: 2; }
+}
+
+@media (max-width: 100%) {
+    .masonry { column-count: 1; }
 }
