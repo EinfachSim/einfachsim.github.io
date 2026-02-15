@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Simon Köhl</title>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            .cv-section {
+                margin-bottom: 50px;
+            }
+            .cv-section h2 {
+                font-size: 140%;
+                margin-bottom: 20px;
+                border-bottom: 2px solid #eee;
+                padding-bottom: 8px;
+            }
+            .cv-item {
+                margin-bottom: 30px;
+                margin-left: 20px;
+            }
+            .cv-item-header {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 8px;
+            }
+            .cv-item-title {
+                font-weight: bold;
+                font-size: 110%;
+            }
+            .cv-item-date {
+                opacity: 0.7;
+            }
+            .cv-item-subtitle {
+                margin-bottom: 8px;
+                opacity: 0.85;
+            }
+            .cv-item-description {
+                margin-left: 20px;
+                margin-top: 8px;
+            }
+            .cv-item-description li {
+                margin-bottom: 6px;
+            }
+            .research-interests {
+                opacity: 0.85;
+                font-style: italic;
+                margin-left: 20px;
+            }
+            .skills-list {
+                margin-left: 20px;
+                opacity: 0.85;
+            }
+            .download-section {
+                text-align: center;
+                margin-top: 60px;
+                padding: 30px;
+                border-top: 2px solid #eee;
+            }
+            .download-btn {
+                display: inline-block;
+                padding: 12px 30px;
+                background: #eee;
+                color: #111;
+                text-decoration: none;
+                margin: 10px;
+                transition: opacity 0.3s;
+            }
+            .download-btn:hover {
+                opacity: 0.7;
+            }
+            @media (max-width: 768px) {
+                .cv-item-header {
+                    flex-direction: column;
+                }
+            }
+        </style>
+    </head> 
+</head>
+<body>
+    <div class="logo-container">
+        <img src="assets/simon.png" width="450" height="253">
+    </div>
+    <div class="short-menu">
+        <a href="index.html">← Home</a>
+        <a href="https://github.com/EinfachSim">GitHub</a>
+        <a href="https://www.linkedin.com/in/simon-k%C3%B6hl-609441227/?locale=en">LinkedIn</a>
+    </div>
+    <div class="banner">
+        computer scientist. researcher. human.
+    </div>
+
+    <div class="cv-section">
+        <h2>Research Interests</h2>
+        <p class="research-interests">
+            Large Language Models, Reinforcement Learning, Bio-plausible AI, Quantum Information, Quantum Computing, Space Science
+        </p>
+    </div>
+
+    <div class="cv-section">
+        <h2>Education</h2>
+        
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <span class="cv-item-title">M.Sc. in Computer Science</span>
+                <span class="cv-item-date">2024 – 2026</span>
+            </div>
+            <div class="cv-item-subtitle">University of Bonn, Germany · Grade: 1.2 (4.0 GPA equiv.)</div>
+            <div class="cv-item-subtitle">Thesis: Reinforcement Learning from Value Feedback: Learning the Pareto front of value-optimized weights in Large Language Models</div>
+        </div>
+
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <span class="cv-item-title">B.Sc. in Mathematics</span>
+                <span class="cv-item-date">2024 – 2027</span>
+            </div>
+            <div class="cv-item-subtitle">University of Bonn, Germany · Grade: 1.4 (3.7 GPA equiv.)</div>
+            <div class="cv-item-subtitle">Semester abroad at Sorbonne Université, Paris (2026)</div>
+        </div>
+
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <span class="cv-item-title">B.Sc. in Computer Science</span>
+                <span class="cv-item-date">2022 – 2024</span>
+            </div>
+            <div class="cv-item-subtitle">University of Bonn, Germany · Grade: 1.9 (3.0 GPA equiv.)</div>
+            <div class="cv-item-subtitle">Thesis: Network structure classification through Topological Data Analysis</div>
+        </div>
+
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <span class="cv-item-title">B.Sc. in Data Science and AI</span>
+                <span class="cv-item-date">2020 – 2022</span>
+            </div>
+            <div class="cv-item-subtitle">Maastricht University, Netherlands · Grade: 7.3 (3.3 GPA equiv.)</div>
+        </div>
+    </div>
+
+    <div class="cv-section">
+        <h2>Experience</h2>
+        
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <span class="cv-item-title">Research Intern</span>
+                <span class="cv-item-date">Oct 2025 – Dec 2025</span>
+            </div>
+            <div class="cv-item-subtitle">Laboratoire d'Astrophysique de Marseille</div>
+            <ul class="cv-item-description">
+                <li>Automated conversion of physical assumptions on stellar activity into statistical models that can be efficiently fitted</li>
+            </ul>
+        </div>
+
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <span class="cv-item-title">Research Intern</span>
+                <span class="cv-item-date">2024 – 2025</span>
+            </div>
+            <div class="cv-item-subtitle">AI and Quantum Lab, European Space Agency</div>
+            <ul class="cv-item-description">
+                <li>Conducted research on QUBO formulations for TSP variants</li>
+                <li>Deployed hundreds of instances on the Jülich Supercomputing Centre's Advantage System</li>
+                <li>Helped develop highly specialized RAG systems for space applications</li>
+                <li>Investigation into Crew Companions, identification of crucial infrastructure needed to enhance AI in Space</li>
+            </ul>
+        </div>
+
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <span class="cv-item-title">Student Assistant</span>
+                <span class="cv-item-date">2022 – 2023</span>
+            </div>
+            <div class="cv-item-subtitle">Deutsches Zentrum für Luft- und Raumfahrttechnik</div>
+            <ul class="cv-item-description">
+                <li>Development of a webpage and infrastructure for easy worldwide data collection of fire hazards in DLR properties by trained professionals</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="cv-section">
+        <h2>Publications</h2>
+        <div class="cv-item">
+            <p class="cv-item-description">
+                N. Rosi, S. Köhl et. al., <i>Quantum Marvin: exploring artificial intelligence and quantum computing for moon surface navigation</i>, GLEX 2025, New Delhi, India, 7-9 May 2025.
+            </p>
+        </div>
+    </div>
+
+    <div class="cv-section">
+        <h2>Awards & Achievements</h2>
+        <ul class="cv-item-description">
+            <li>Shortlisted for ELLIS PhD Program, interviewed at ETH Zürich</li>
+            <li>Scholarship Holder (Deutschlandstipendium) for an excellent academic track record</li>
+            <li>Honours Student (Maastricht University)</li>
+            <li>First Place Jugend-Forscht 2020 Category Mathematics/Informatics (Regional)</li>
+            <li>Michaelspreis (Hans-Herrmann Franzke Stiftung)</li>
+        </ul>
+    </div>
+
+    <div class="cv-section">
+        <h2>Technical Skills</h2>
+        <p class="skills-list">
+            Python, C++, PyTorch, TensorFlow, Distributed Training, CUDA, Kubernetes, Docker, UNIX
+        </p>
+    </div>
+
+    <div class="cv-section">
+        <h2>Teaching</h2>
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <span class="cv-item-title">Tutor</span>
+                <span class="cv-item-date">2023 – Present</span>
+            </div>
+            <div class="cv-item-subtitle">University of Bonn</div>
+            <ul class="cv-item-description">
+                <li>Teaching Numerical Mathematics, Stochastics and Cryptography at university level</li>
+                <li>Privately tutoring in topics including Complexity Theory, Analysis, Linear Algebra, Statistics, and more</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="cv-section">
+        <h2>Projects</h2>
+        
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <span class="cv-item-title">FastLearner</span>
+            </div>
+            <p class="cv-item-description">
+                RAG system built with Mistral models for document Q&A. Features web interface, source attribution, and self-hosted deployment option for rapid knowledge extraction from lengthy documents.
+                <br><a href="https://github.com/EinfachSim/FastLearner">→ View on GitHub</a>
+            </p>
+        </div>
+
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <span class="cv-item-title">ReadBetweenTheLines</span>
+            </div>
+            <p class="cv-item-description">
+                Research project analyzing political bias in text using domain-specific word embeddings. Implemented alignment methods from academic literature and trained custom fastText models for bias detection.
+                <br><a href="https://github.com/EinfachSim/ReadBetweenTheLines">→ View on GitHub</a>
+            </p>
+        </div>
+
+        <div class="cv-item">
+            <div class="cv-item-header">
+                <span class="cv-item-title">RL Playground</span>
+            </div>
+            <p class="cv-item-description">
+                Modular codebase for implementing and testing deep RL algorithms from scratch. Features configurable environments and real-time training monitoring.
+                <br><a href="https://github.com/EinfachSim/RL_playground">→ View on GitHub</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
