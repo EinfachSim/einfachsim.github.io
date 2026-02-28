@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Swile Rechner</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0f0f0f;
+    --surface: #1a1a1a;
+    --border: #2e2e2e;
+    --accent: #d4f542;
+    --text: #f0f0f0;
+    --muted: #666;
+    --radius: 16px;
+  }
+
+  html, body {
+    min-height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    padding: 24px 20px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .header {
+    margin-bottom: 36px;
+  }
+
+  .header h1 {
+    font-family: 'DM Mono', monospace;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .header p {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .field {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 0.2s;
+  }
+
+  .input-wrap:focus-within {
+    border-color: var(--accent);
+  }
+
+  .euro {
+    padding: 0 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 18px;
+    color: var(--muted);
+    user-select: none;
+  }
+
+  input[type="number"] {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    padding: 18px 16px 18px 0;
+    width: 100%;
+    -moz-appearance: textfield;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+
+  input::placeholder { color: #333; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+
+  .result-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .result-box {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    min-height: 74px;
+    transition: border-color 0.3s;
+  }
+
+  .result-box.active {
+    border-color: var(--accent);
+  }
+
+  .result-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--accent);
+    transition: opacity 0.2s;
+    line-height: 1;
+  }
+
+  .result-value.empty {
+    color: #2a2a2a;
+  }
+
+  .result-currency {
+    font-family: 'DM Mono', monospace;
+    font-size: 18px;
+    color: var(--accent);
+    opacity: 0.6;
+  }
+
+  .result-currency.empty { opacity: 0; }
+
+  .formula {
+    margin-top: 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #3a3a3a;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <h1>Swile Rechner</h1>
+    <p>Eigenanteil berechnen</p>
+  </div>
+
+  <div class="field">
+    <label>Limit Swile</label>
+    <div class="input-wrap">
+      <span class="euro">€</span>
+      <input type="number" id="swile" inputmode="decimal" placeholder="0.00" step="0.01" min="0">
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Betrag Einkauf</label>
+    <div class="input-wrap">
+      <span class="euro">€</span>
+      <input type="number" id="betrag" inputmode="decimal" placeholder="0.00" step="0.01" min="0">
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="result-label">Eigenanteil (S)</div>
+  <div class="result-box" id="result-box">
+    <span class="result-value empty" id="result-value">—</span>
+    <span class="result-currency empty" id="result-currency">€</span>
+  </div>
+  <div class="formula" id="formula">&nbsp;</div>
+</div>
+
+<script>
+  const swileEl = document.getElementById('swile');
+  const betragEl = document.getElementById('betrag');
+  const resultVal = document.getElementById('result-value');
+  const resultCur = document.getElementById('result-currency');
+  const resultBox = document.getElementById('result-box');
+  const formulaEl = document.getElementById('formula');
+
+  function compute() {
+    const Z = parseFloat(swileEl.value);
+    const X = parseFloat(betragEl.value);
+
+    if (!isNaN(Z) && !isNaN(X)) {
+      const S = (X - 0.6 * Z) / 2;
+      const formatted = S.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      resultVal.textContent = formatted;
+      resultVal.classList.remove('empty');
+      resultCur.classList.remove('empty');
+      resultBox.classList.add('active');
+      formulaEl.textContent = `(${X.toFixed(2)} − 0.6 × ${Z.toFixed(2)}) ÷ 2`;
+    } else {
+      resultVal.textContent = '—';
+      resultVal.classList.add('empty');
+      resultCur.classList.add('empty');
+      resultBox.classList.remove('active');
+      formulaEl.innerHTML = '&nbsp;';
+    }
+  }
+
+  swileEl.addEventListener('input', compute);
+  betragEl.addEventListener('input', compute);
+</script>
+</body>
+</html>
